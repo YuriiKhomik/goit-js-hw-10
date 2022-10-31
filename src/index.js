@@ -15,7 +15,7 @@ const refs = {
 refs.input.addEventListener('input', debounce(onInputType, DEBOUNCE_DELAY));
 
 function onInputType(e) {
-    inputQuery = refs.input.value.trim();
+    inputQuery = refs.input.value;
     console.log(inputQuery)
     
     clearHtml();
