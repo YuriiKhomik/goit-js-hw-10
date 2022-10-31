@@ -16,7 +16,6 @@ refs.input.addEventListener('input', debounce(onInputType, DEBOUNCE_DELAY));
 
 function onInputType(e) {
     let inputQuery = e.target.value.trim();
-    console.log(inputQuery)
     
     clearHtml();
 
@@ -42,7 +41,7 @@ function createCoutryList(countries) {
         .map(({ flags, name }) => {
             return `
         <li>
-            <img src="${flags.svg}" alt="Flag of ${name.official} width="30" height="20"> <p>${name.official}</p>
+            <img src="${flags.svg}" alt="Flag of ${name.common} width="30" height="20"> <p>${name.common}</p>
         </li>`
         })
         .join('');
@@ -53,7 +52,7 @@ function createCountryInfo(countries) {
     const markup = countries
         .map(({ flags, name, capital, population, languages }) => {
             return `    
-        <h1><img src="${flags.svg}" alt="Flag of ${name.official} width="30" height="20">${name.official}</h1>
+        <h1><img src="${flags.svg}" alt="Flag of ${name.common} width="30" height="20">${name.common}</h1>
         <p><b>Capital</b>: ${capital}</p>
         <p><b>Population</b>: ${population}</p>
         <p><b>languages</b>: ${Object.values(languages)}</p>`;
