@@ -25,3 +25,16 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.country-list{
+  list-style: none;
+}
+
+.country-list > li{
+  display: flex;
+  align-items: center;
+}
+
+.country-list>li>img {
+  margin-right: 10px;
+}
