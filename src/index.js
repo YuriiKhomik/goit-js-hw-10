@@ -20,19 +20,23 @@ function onInputType(e) {
   clearMarkup();
 
   if (inputQuery !== '') {
-    fetchCountries(inputQuery).then(countries => {
-      if (countries.length > 10) {
-        Notiflix.Notify.info(
-          'Too many matches found. Please enter a more specific name.'
-        );
-      } else if (countries.length >= 2 && countries.length <= 10) {
-        createCoutryList(countries);
-      } else if (countries.length === 0) {
-        Notiflix.Notify.failure('Oops, there is no country with that name');
-      } else if (countries.length === 1) {
-        createCountryInfo(countries);
-      }
-    });
+    fetchCountries(inputQuery)
+      .then(countries => {
+        if (countries.length > 10) {
+          Notiflix.Notify.info(
+            'Too many matches found. Please enter a more specific name.'
+          );
+        } else if (countries.length >= 2 && countries.length <= 10) {
+          createCoutryList(countries);
+        } else if (countries.length === 0) {
+          Notiflix.Notify.failure('Oops, there is no country with that name');
+        } else if (countries.length === 1) {
+          createCountryInfo(countries);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 }
 
